@@ -2,21 +2,19 @@ import 'package:flutter/material.dart';
 
 import 'converter.dart';
 
-class LengthConverter extends Converter {
+class VolumeConverter extends Converter {
 
   @override
-  String get name => 'Length';
+  String get name => 'Volume';
 
   @override
-  IconData get icon => Icons.straighten;
+  IconData get icon => Icons.opacity;
 
   @override
   Map<String, double> get unitFactors => {
-    'meters': 1,
-    'kilometers': 0.001,
-    'miles': 0.000621371,
-    'yards': 1.09361,
-    'feet': 3.28084,
+        'liters': 1,
+        'milliliters': 1000,
+        'gallons': 0.264172,
   };
 
   @override

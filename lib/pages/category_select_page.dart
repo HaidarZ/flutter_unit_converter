@@ -18,15 +18,34 @@ class _CategorySelectPageState extends State<CategorySelectPage> {
           title: const Text('Unit Converter'),
           centerTitle: true,
           backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+          actions: [
+            IconButton(
+              icon: const Icon(Icons.info_outline),
+              onPressed: () {
+                showAboutDialog(
+                  context: context,
+                  applicationName: 'Unit Converter',
+                  applicationVersion: 'v0.0.1',
+                  applicationIcon: const Icon(Icons.info_outline),
+                  children: [
+                    const Text(
+                      'This is a university project developed by Haidar Zeineddine',
+                      textAlign: TextAlign.center,
+                    ),
+                  ],
+                );
+              },
+            ),
+          ],
         ),
         body: GridView.count(
           crossAxisCount: 2,
-          children: converterCategories.map((category) {
+          children: converters.map((converter) {
             return InkWell(
               borderRadius: const BorderRadius.all(Radius.zero),
               onTap: () {
                 Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => ConversionPage(category: category),
+                  builder: (context) => ConversionPage(converter: converter),
                 ));
               },
               child: Card(
@@ -37,10 +56,10 @@ class _CategorySelectPageState extends State<CategorySelectPage> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Icon(category.icon, color: Colors.white),
+                    Icon(converter.icon, color: Colors.white),
                     const SizedBox(height: 10),
                     Text(
-                      category.title,
+                      converter.name,
                       style: const TextStyle(color: Colors.white),
                     ),
                   ],

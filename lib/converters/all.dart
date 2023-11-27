@@ -1,24 +1,16 @@
-import 'package:flutter/material.dart';
-
+import 'converter.dart';
+import 'data_converter.dart';
 import 'length_converter.dart';
+import 'speed_converter.dart';
 import 'temperature_converter.dart';
-import 'converter_category.dart';
+import 'volume_controller.dart';
 import 'weight_converter.dart';
 
-List<ConverterCategory> converterCategories = [
-  ConverterCategory(
-    title: 'Temperature',
-    icon: Icons.thermostat,
-    converter: TemperatureConverter(),
-  ),
-  ConverterCategory(
-    title: 'Length',
-    icon: Icons.straighten,
-    converter: LengthConverter(),
-  ),
-  ConverterCategory(
-    title: 'Weight',
-    icon: Icons.scale,
-    converter: WeightConverter(),
-  )
+List<Converter> converters = [
+  TemperatureConverter(),
+  LengthConverter(),
+  WeightConverter(),
+  DataConverter(),
+  VolumeConverter(),
+  SpeedConverter()
 ];

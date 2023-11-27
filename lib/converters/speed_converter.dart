@@ -2,21 +2,20 @@ import 'package:flutter/material.dart';
 
 import 'converter.dart';
 
-class LengthConverter extends Converter {
+class SpeedConverter extends Converter {
 
   @override
-  String get name => 'Length';
+  String get name => 'Speed';
 
   @override
-  IconData get icon => Icons.straighten;
+  IconData get icon => Icons.speed;
 
   @override
   Map<String, double> get unitFactors => {
-    'meters': 1,
-    'kilometers': 0.001,
-    'miles': 0.000621371,
-    'yards': 1.09361,
-    'feet': 3.28084,
+        'meters/second': 1,
+        'kilometers/hour': 3.6,
+        'miles/hour': 2.23694,
+        'feet/second': 3.28084,
   };
 
   @override

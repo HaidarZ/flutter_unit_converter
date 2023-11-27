@@ -2,21 +2,21 @@ import 'package:flutter/material.dart';
 
 import 'converter.dart';
 
-class LengthConverter extends Converter {
+class DataConverter extends Converter {
 
   @override
-  String get name => 'Length';
+  String get name => 'Data';
 
   @override
-  IconData get icon => Icons.straighten;
+  IconData get icon => Icons.code;
 
   @override
   Map<String, double> get unitFactors => {
-    'meters': 1,
-    'kilometers': 0.001,
-    'miles': 0.000621371,
-    'yards': 1.09361,
-    'feet': 3.28084,
+    'bytes': 1,
+    'kilobytes': 1024,
+    'megabytes': 1024 * 1024,
+    'gigabytes': 1024 * 1024 * 1024,
+    'terabytes': 1024 * 1024 * 1024 * 1024,
   };
 
   @override
@@ -26,7 +26,7 @@ class LengthConverter extends Converter {
     if (fromFactor == null || toFactor == null) {
       throw Exception('Unsupported unit');
     }
-    return value / fromFactor * toFactor;
+    return value * fromFactor / toFactor;
   }
 
 }
